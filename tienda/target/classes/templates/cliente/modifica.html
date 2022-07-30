@@ -1,0 +1,44 @@
+<<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8"/>
+         <link href="/ccs/menu.css" rel="stylesheet" type="text/css"/>
+         
+    </head>
+    <header th:replace="layout/plantilla :: header"/>
+    <div class="contenido">
+    <body>
+        <h2>Datos Cliente</h2>
+        <br>
+        <a th:href="@{/cliente/listado}">Regresar</a>
+        <br>
+        <form th:action="@{/cliente/guardar}"
+              method="post"
+              th:object="${cliente}">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <br>
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" name="apellidos" th:field="*{apellidos}"/>
+            <br>
+            <label for="correo">Correo:</label>
+            <input type="email" name="correo" th:field="*{correo}"/>
+            <br>
+            <label for="telefono">Telefono:</label>
+            <input type="tel" name="telefono" th:field="*{telefono}"/>
+            <br>
+            <label for="limite">Limite de Credito:</label>
+            <input type="number" name="limite" th:field="*{credito.limite}"/>
+            <br>  <br/>
+                
+            <input type="submit" name="guardar" value="Guardar"/>
+        </form>
+            
+      </div>
+    
+     <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+
+</html>
